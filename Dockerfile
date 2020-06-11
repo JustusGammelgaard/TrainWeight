@@ -64,7 +64,7 @@ RUN git clone https://github.com/JustusGammelgaard/darkflow.git \
     && pip install .
 
 WORKDIR /darkflow
-RUN wget https://trainingweight.imfast.io/ -P ./bin
+RUN wget -O yolocards_608.weights https://trainingweight.imfast.io/
 RUN flow --model cfg/yolocards.cfg --train --dataset "/dataset/images" --annotation "/dataset/annots" --load yolocards_608.weights --gpu 1.0
 
 #RUN wget https://pjreddie.com/media/files/tiny-yolo-voc.weights -P ./bin
